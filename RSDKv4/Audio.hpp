@@ -154,8 +154,10 @@ void SwapMusicTrack(const char *filePath, byte trackID, uint loopPoint, uint rat
 bool PlayMusic(int track, int musStartPos);
 inline void StopMusic(bool setStatus)
 {
-    if (setStatus)
+    if (setStatus) {
         musicStatus = MUSIC_STOPPED;
+		trackID = -1;
+	}
     musicPosition = 0;
 
 #if !RETRO_USE_ORIGINAL_CODE
