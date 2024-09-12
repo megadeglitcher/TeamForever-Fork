@@ -4618,7 +4618,7 @@ void ProcessScript(int scriptCodePtr, int jumpTablePtr, byte scriptEvent)
                 spriteFrame = &scriptFrames[scriptInfo->frameListOffset + scriptEng.operands[0]];
                 
                 switch (scriptEng.operands[1]) {
-					case 0; //No FX Flags, just draw the sprite
+					case 0: //No FX Flags, just draw the sprite
 						DrawSprite((scriptEng.operands[2] >> 16) - xScrollOffset + spriteFrame->pivotX,
 								   (scriptEng.operands[3] >> 16) - yScrollOffset + spriteFrame->pivotY, spriteFrame->width,
 								   spriteFrame->height, spriteFrame->sprX, spriteFrame->sprY, scriptInfo->spriteSheetID);
