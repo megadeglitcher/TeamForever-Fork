@@ -671,7 +671,10 @@ const char *getXMLAttributeValueString(const tinyxml2::XMLAttribute *attributePt
 void RetroEngine::LoadXMLVariables()
 {
     FileInfo info;
-    for (int m = 0; m < (int)modList.size(); ++m) {
+    //for (int m = 0; m < (int)modList.size(); ++m) {
+	//We reversed the load order to fix a bug
+	//Flip yo for real
+	for (int m = ((int)modList.size() - 1); m >= 0; --m) {
         if (!modList[m].active)
             continue;
 
@@ -722,7 +725,10 @@ void RetroEngine::LoadXMLVariables()
 void RetroEngine::LoadXMLPalettes()
 {
     FileInfo info;
-    for (int m = 0; m < (int)modList.size(); ++m) {
+    //for (int m = 0; m < (int)modList.size(); ++m) {
+	//We reversed the load order to fix a bug
+	//Flip yo for real
+	for (int m = ((int)modList.size() - 1); m >= 0; --m) {
         if (!modList[m].active)
             continue;
 
@@ -788,7 +794,10 @@ void RetroEngine::LoadXMLObjects()
     FileInfo info;
     modObjCount = 0;
 
-    for (int m = 0; m < (int)modList.size(); ++m) {
+    //for (int m = 0; m < (int)modList.size(); ++m) {
+	//We reversed the load order to fix a bug
+	//Flip yo for real
+	for (int m = ((int)modList.size() - 1); m >= 0; --m) {
         if (!modList[m].active)
             continue;
 
@@ -855,7 +864,10 @@ void RetroEngine::LoadXMLSoundFX()
 {
     FileInfo info;
     FileInfo infoStore;
-    for (int m = 0; m < (int)modList.size(); ++m) {
+    //for (int m = 0; m < (int)modList.size(); ++m) {
+	//We reversed the load order to fix a bug
+	//Flip yo for real
+	for (int m = ((int)modList.size() - 1); m >= 0; --m) {
         if (!modList[m].active)
             continue;
 
@@ -914,7 +926,10 @@ void RetroEngine::LoadXMLPlayers(TextMenu *menu)
 {
     FileInfo info;
 
-    for (int m = 0; m < (int)modList.size(); ++m) {
+    //for (int m = 0; m < (int)modList.size(); ++m) {
+	//We reversed the load order to fix a bug
+	//Flip yo for real
+	for (int m = ((int)modList.size() - 1); m >= 0; --m) {
         if (!modList[m].active)
             continue;
 
@@ -964,7 +979,10 @@ void RetroEngine::LoadXMLPlayers(TextMenu *menu)
 void RetroEngine::LoadXMLStages(TextMenu *menu, int listNo)
 {
     FileInfo info;
-    for (int m = 0; m < (int)modList.size(); ++m) {
+    //for (int m = 0; m < (int)modList.size(); ++m) {
+	//We reversed the load order to fix a bug
+	//Flip yo for real
+	for (int m = ((int)modList.size() - 1); m >= 0; --m) {
         if (!modList[m].active)
             continue;
 
