@@ -2712,6 +2712,11 @@ void DrawClassicFade(int XPos, int YPos, int width, int height, int R, int G, in
     }
     if (width <= 0 || height <= 0 || A <= 0)
         return;
+	
+	//A works differently here, and we're going to tweak the value to compensate
+	A *= 3;
+	A >>= 3;
+	
     int pitch              = GFX_LINESIZE - width;
     ushort *frameBufferPtr = &Engine.frameBuffer[XPos + GFX_LINESIZE * YPos];
     ushort clr             = PACK_RGB888(R, G, B);
