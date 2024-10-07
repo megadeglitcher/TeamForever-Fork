@@ -423,6 +423,7 @@ const FunctionInfo functions[] = {
     FunctionInfo("LoadPalette", 5),
     FunctionInfo("RotatePalette", 4),
     FunctionInfo("SetScreenFade", 4),
+    FunctionInfo("SetClassicFade", 4),
     FunctionInfo("SetActivePalette", 3),
     FunctionInfo("SetPaletteFade", RETRO_REV00 ? 7 : 6),
     FunctionInfo("SetPaletteEntry", 3),
@@ -1021,6 +1022,7 @@ enum ScrFunc {
     FUNC_LOADPALETTE,
     FUNC_ROTATEPALETTE,
     FUNC_SETSCREENFADE,
+    FUNC_SETCLASSICFADE,
     FUNC_SETACTIVEPALETTE,
     FUNC_SETPALETTEFADE,
     FUNC_SETPALETTEENTRY,
@@ -4588,7 +4590,11 @@ void ProcessScript(int scriptCodePtr, int jumpTablePtr, byte scriptEvent)
                 break;
             case FUNC_SETSCREENFADE:
                 opcodeSize = 0;
-                SetFade(scriptEng.operands[0], scriptEng.operands[1], scriptEng.operands[2], scriptEng.operands[3]);
+                SetFade(1, scriptEng.operands[0], scriptEng.operands[1], scriptEng.operands[2], scriptEng.operands[3]);
+                break;
+            case FUNC_SETCLASSICFADE:
+                opcodeSize = 0;
+                SetFade(2, scriptEng.operands[0], scriptEng.operands[1], scriptEng.operands[2], scriptEng.operands[3]);
                 break;
             case FUNC_SETACTIVEPALETTE:
                 opcodeSize = 0;
