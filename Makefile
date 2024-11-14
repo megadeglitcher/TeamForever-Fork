@@ -113,13 +113,14 @@ SOURCES = \
     RSDKv4/Userdata     \
     RSDKv4/Video        \
     RSDKv4/main         \
-    RSDKv4/fcaseopen    \
     RSDKv4/NativeObjects/All                \
     dependencies/all/theoraplay/theoraplay  \
     dependencies/all/tinyxml2/tinyxml2
-
-CXXFLAGS_ALL += -DFORCE_CASE_INSENSITIVE
-
+	
+ifneq ($(FORCE_CASE_INSENSITIVE),)
+	CXXFLAGS_ALL += -DFORCE_CASE_INSENSITIVE
+	SOURCES += RSDKv4/fcaseopen
+endif
 
 PKGSUFFIX ?= $(SUFFIX)
 
