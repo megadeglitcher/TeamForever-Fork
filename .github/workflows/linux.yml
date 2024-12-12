@@ -22,7 +22,7 @@ jobs:
       - name: Build ForeverFork Ubuntu (Make)
         run: |
           make
-          mv bin/s1fs2a
+          mv bin/s1fs2a bin/ForeverFork
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
