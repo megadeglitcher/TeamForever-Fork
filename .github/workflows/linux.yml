@@ -1,0 +1,30 @@
+name: ForeverFork (Linux)
+on:
+  workflow_dispatch:
+
+env:
+  GENERAL_FLAGS: "-DCMAKE_BUILD_TYPE=Release"
+  GENERAL_LINUX_FLAGS: "-DCMAKE_CXX_FLAGS='-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0'"
+
+jobs:
+  ForeverFork_Ubuntu-Make:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install build-essential git libsdl2-dev libtheora-dev libogg-dev libvorbis-dev libglew-dev libglfw3-dev
+          ls ./dependencies/all
+      - name: Build ForeverFork Ubuntu (Make)
+        run: |
+          make
+          mv bin/s1fs2a
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ForeverFork Ubuntu (Make)
+          path: bin
