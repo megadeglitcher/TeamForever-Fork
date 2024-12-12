@@ -1259,6 +1259,12 @@ bool RetroEngine::LoadGameConfig(const char *filePath)
 	AddNativeFunction("MoveMod", MoveMod);
     AddNativeFunction("RefreshEngine", RefreshEngine); // Reload engine after changing mod status
 #endif
+    AddNativeFunction("SetScreenDirection", SetScreenDirection);
+    AddNativeFunction("GetScreenDirection", GetScreenDirection);
+    AddNativeFunction("SetScreenRotation", SetScreenRotation);
+    AddNativeFunction("GetScreenRotation", GetScreenRotation);
+    AddNativeFunction("SetScreenZoom", SetScreenZoom);
+    AddNativeFunction("GetScreenZoom", GetScreenZoom);
 
 #if !RETRO_USE_ORIGINAL_CODE
     if (strlen(Engine.startSceneFolder) && strlen(Engine.startSceneID)) {

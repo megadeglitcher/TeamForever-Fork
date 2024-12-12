@@ -222,5 +222,11 @@ void GetFrameRate();
 void SetFrameRate(int *enabled, int *unused);
 void ApplyWindowChanges();
 #endif
+void SetScreenDirection(int *type, int *unused);
+void GetScreenDirection();
+void SetScreenRotation(int *type, int *unused);
+void GetScreenRotation();
+void SetScreenZoom(int *type, int *unused);
+void GetScreenZoom();
 
 #endif //! USERDATA_H
